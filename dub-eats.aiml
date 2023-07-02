@@ -1,0 +1,212 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    
+    <!-- Greetings -->
+    <category>
+        <pattern>HELLO</pattern>
+        <template>Hello there! How can I assist you today?</template>
+    </category>
+    
+    <category>
+        <pattern>HI</pattern>
+        <template>Hi there! How can I assist you today?</template>
+    </category>
+    
+    <category>
+        <pattern>GOOD MORNING</pattern>
+        <template>Good morning! How can I assist you today?</template>
+    </category>
+    
+    <category>
+        <pattern>GOOD AFTERNOON</pattern>
+        <template>Good afternoon! How can I assist you today?</template>
+    </category>
+    
+    <category>
+        <pattern>GOOD EVENING</pattern>
+        <template>Good evening! How can I assist you today?</template>
+    </category>
+
+    <!-- Menu Information -->
+    <category>
+        <pattern>I NEED A MENU</pattern>
+        <template>Please, find our menu here: https://restaurantsixdublin.com/the-menu/</template>
+    </category>
+
+    <category>
+        <pattern>WHERE CAN I FIND THE MENU</pattern>
+        <template>Please, find our menu here: https://restaurantsixdublin.com/the-menu/</template>
+    </category>
+    
+    <category>
+        <pattern>WHAT'S ON THE MENU</pattern>
+        <template>Please, find our today's menu here: https://restaurantsixdublin.com/the-menu/</template>
+    </category>
+    
+      <category>
+        <pattern>WHAT IS ON THE MENU</pattern>
+        <template>Please, find our today's menu here: https://restaurantsixdublin.com/the-menu/</template>
+    </category>
+
+    <!-- Specific Dish -->
+  <category>
+    <pattern>TELL ME ABOUT *</pattern>
+    <template>
+      <think>
+        <set name="dish_name"><star/></set>
+        <set name="dish_description">Description of the dish.</set>
+        <set name="dish_price">€9.99</set>
+      </think>
+      <condition name="dish_name">
+        <li value="Dublin Bay prawns">
+          Our Dublin Bay Prawns are succulent prawns served with a tangy cocktail sauce. They are priced at €12.99.
+        </li>
+        <li value="Irish stew">
+          A stew native to Ireland that is traditionally made with root vegetables and lamb or mutton, but also commonly with beef. It is priced at €14.99.
+        </li>
+        <li value="Dublin coddle">
+          Dublin Coddle is a traditional Irish dish made with sausages, bacon, and potatoes. It is priced at €11.99.
+        </li>
+        <li>
+          I'm sorry, but I don't have information about <get name="dish_name"/> at the moment.
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- DIETARY RESTRICTIONS -->
+  <category>
+    <pattern>DO YOU CATER TO DIETARY REQUIREMENTS</pattern>
+    <template>
+      We cater to various dietary restrictions including gluten-free, vegan, and vegetarian options. Please let me know your dietary requirements, and I will provide you with suitable menu recommendations.
+    </template>
+  </category>
+
+  <!-- Reservation -->
+
+  <category>
+    <pattern>MAKE RESERVATION</pattern>
+    <template>
+    Sure, I can help you with that. Please provide me with reservation date in format: reservation date DD/MM/YY.
+    </template>
+  </category>
+
+  <category>
+    <pattern>I WOULD LIKE TO MAKE RESERVATION</pattern>
+    <template>
+    Sure, I can help you with that. Please provide me with reservation date in format: reservation date DD/MM/YY.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MAY I MAKE RESERVATION</pattern>
+     <template>
+    Sure, I can help you with that. Please provide me with reservation date in format: reservation date DD/MM/YY.
+    </template>
+  </category>
+
+
+  <!-- Reservation Date -->
+  <category>
+    <pattern>RESERVATION DATE *</pattern>
+    <template>
+      <set name="reservation_date"><star/></set>
+    - great! What time would you like to make the reservation for? Use the following format: reservation time HOUR am or pm.
+    </template>
+  </category>
+
+  <!-- Reservation Time -->
+  <category>
+    <pattern>RESERVATION TIME *</pattern>
+    <template>
+      <set name="reservation_time"><star/></set>
+    - it is. How many guests will be joining you for the reservation? Use the following format: number of guests #
+    </template>
+  </category>
+
+  <!-- Number of Guests -->
+  <category>
+    <pattern>NUMBER OF GUESTS *</pattern>
+    <template>
+      <set name="number_of_guests"><star/></set>
+    - a perfect number. What name is reservation under? Use pattern reservation name and then add your first name.
+    </template>
+    </category>
+
+  <!-- Reservation Name -->
+  <category>
+    <pattern>RESERVATION NAME *</pattern>
+    <template>
+     <set name="reservation_name"><star/></set>
+    - thank you for providing the details. I will make a reservation for <get name="number_of_guests"/> guests on <get name="reservation_date"/> at <get name="reservation_time"/> under <get name="reservation_name"/>. Is there anything else I can help you with?
+    </template>
+  </category>
+
+
+
+    <!-- Reviews -->
+
+<category>
+  <pattern>DUBEATS NEGATIVE REVIEWS</pattern>
+  <template>
+    <random>
+      <li>Here are some negative reviews for DubEats:</li>
+      <li>Customers had the following complaints about DubEats:   </li>
+    </random>
+    <random>
+      <li>I had a terrible experience at DubEats. The food was cold and tasteless, and the service was extremely slow.</li>
+      <li>The quality of the food at DubEats was very poor. It lacked flavor and freshness, and the portions were small.</li>
+      <li>The staff at DubEats was rude and unprofessional. They ignored my requests and made me feel unwelcome.</li>
+      <li>I would not recommend DubEats to anyone. The overall experience was disappointing and not worth the price.</li>
+    </random>
+    </template>
+    </category>
+
+    <!-- Contact Information -->
+    <category>
+        <pattern>WHAT IS YOUR PHONE NUMBER</pattern>
+        <template>Our phone number is [phone number]. If you have any questions or would like to make a reservation, please don't hesitate to give us a call. Is there anything else I can help you with?</template>
+    </category>
+    
+    <category>
+        <pattern>WHAT IS YOUR EMAIL ADDRESS</pattern>
+        <template>You can reach us at [email address]. Feel free to send us an email if you have any inquiries or need further assistance. Is there anything else I can help you with?</template>
+    </category>
+
+    <category>
+        <pattern>THAT WOULD BE ALL</pattern>
+        <template> I am glad to be of help. Enjoy eating at our restaurant!</template>
+    </category>
+
+    <category>
+        <pattern>NO</pattern>
+        <template>I am glad to be of help. Enjoy eating at our restaurant! Have a lovely day!</template>
+    </category>
+
+      <category>
+        <pattern>NO THANKS</pattern>
+        <template>I am glad to be of help. Enjoy eating at our restaurant!
+        </template>
+    </category>
+
+    <category>
+        <pattern>THANK YOU</pattern>
+        <template> I am glad to be of help. Enjoy eating at our restaurant!</template>
+    </category>
+
+    <category>
+        <pattern>BYE</pattern>
+        <template>Bye! Have a lovely day.</template>
+    </category>
+
+     <category>
+        <pattern>THANKS</pattern>
+        <template>Bye! Have a lovely day.</template>
+    </category>
+
+    <!-- Default -->
+    <category>
+        <pattern>*</pattern>
+        <template>I apologize, but I don't have the information you're looking for. Could you please rephrase your question or provide more details?</template>
+    </category>
+    
+</aiml>
